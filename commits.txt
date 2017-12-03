@@ -1,0 +1,26 @@
+commit 146d8138b7c626cfe1b7c44856817992a8cfce89
+Author: jose hernandez <jose2889@gmail.com>
+Date:   Sun Dec 3 12:16:30 2017 -0400
+
+    modificamos el body en css y se agrego un titulo en html
+
+
+commit a5aef6d2ba8412c2ecad7554405b4428b649b48b
+Author: jose hernandez <jose2889@gmail.com>
+Date:   Sun Dec 3 12:13:11 2017 -0400
+
+    agregamos un titulo al html
+
+
+commit 49a14e1e1e8c1c6dbdf44c72b7bb43c631e0feb7
+Author: jose hernandez <jose2889@gmail.com>
+Date:   Sun Dec 3 12:07:36 2017 -0400
+
+    este es el primer commit de notas
+
+
+commit 9bcca1f597bfef10ee5369cf83d9ba48f47881ca
+Author: Angular CLI <angular-cli@angular.io>
+Date:   Sun Oct 29 15:27:31 2017 -0400
+
+    chore: initial commit from @angular/cli
