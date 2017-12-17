@@ -1,70 +1,35 @@
 import { Component } from '@angular/core';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
-import { Observable } from 'rxjs/Observable';
+import { ServicioService } from './servicios/servicio.service';
+import { cliente } from './cliente';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [ServicioService]
 })
+
 export class AppComponent {
+  title = 'Servicios e Inyeccion de dependencia';
 
-  notes: FirebaseListObservable<any[]>;
-  
-    constructor(public afDB: AngularFireDatabase) {
-      this.notes = afDB.list('notas').valueChanges();
-    }
+  lista:cliente[];
+  listaId:cliente[];
 
-  datos =  {'id':null, 'title':null, 'description':null};
-  show:boolean = false;
-  editing:boolean = false;
-
-  addNote() {
-    this.show = true;
-    
-  }
-  viewNote(nota) {
-    this.show = true;
-    this.datos = nota;
-    this.editing = true;
+  constructor(private servicio:ServicioService){
 
   }
-  cancel() {
-    this.show = false;
+
+  cargarDatos(){
+    this.lista = this.servicio.getDatos();
     
   }
 
-  createNote() {
-    this.datos.id = Date.now();
-    this.afDB.database.ref('notas/' + this.datos.id).set(this.datos);
-    // if (this.editing)
-    //   { 
-    //     var me = this;
-    //     this.notes.forEach(function(el, i) {
-    //       if (el.id === me.datos.id ) {
-    //         me.notes[i] = me.datos;
-    //       }
-    //     }
-    //   )
-    //   me.show = false;
-    //   }
-    // else
-    // {      
-    //   this.datos.id = Date.now();
-    //   this.notes.push(this.datos);
-    //   this.show = false;
-    //   this.datos =  {'id':null, 'title':null, 'description':null};
-    // }    
-  }
+  filtraId(id:number){
+    console.log("valor de id: "+id)
+    var id = 1;
+    this.listaId = this.servicio.getDatosId(1);
 
-  // deleteNote() {
-  //   var me = this;
-  //   me.notes.forEach(function(el, i) {
-  //     if (el === me.datos ) {
-  //       me.notes.splice(i, 1)
-  //     }
-  //   })
-  //   this.show = false;
-  //   this.datos =  {'id':null, 'title':null, 'description':null};
-  // }
+    console.log(this.listaId)
+  }
+ 
 }

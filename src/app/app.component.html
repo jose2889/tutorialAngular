@@ -1,32 +1,14 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="col-md-6">
-  <h1>que bueno es git</h1>
-  <h1>este si funciona bien</h1>
-    <h2>Listado de Notas</h2>
-    <h2>segunda nota para git</h2>
-    <h4>aqui estamos probando la rama test</h4>
-    <ul class="list-group">
-      <li (click)="viewNote(n)" class="list-group-item" *ngFor="let n of notes">{{n.id}} {{n.title}} {{n.description}}</li> 
+    <h2>{{title}}</h2>
+     <ul class="list-group">
+      <li class="list-group-item" *ngFor="let cliente of lista">{{cliente.id}} <br> {{cliente.nombre}} <br> {{cliente.direccion}} <br> {{cliente.telefono}}</li> 
     </ul>
-    <a class="btn btn-primary btn-block" (click)="addNote()">Nueva Nota</a>
-</div>
-<div class="col-md-6" *ngIf="show">
-  <h2>Nueva Nota</h2>
-  <h3>Esto es una prueba para git</h3>
-  <input class="form-control" type="text" placeholder="Titulo de la nota" [(ngModel)]="datos.title">
-  <br />
-  <textarea class="form-control" placeholder="Descripcion de la nota" [(ngModel)]="datos.description"></textarea>
-  <hr />
-  <div class="row">
-    <div class="col-md-4">
-      <a class="btn btn-primary btn-block"  (click)="createNote()">Guardar Nota</a>
-    </div>   
-    <div class="col-md-4">
-        <a class="btn btn-danger btn-block" *ngIf="editing" (click)="deleteNote()">Eliminar</a>
-    </div>
-    <div class="col-md-4">
-        <a class="btn btn-success btn-block"  (click)="cancel()">Cancelar</a>
-    </div>
-  </div>
-</div>
+    <a class="btn btn-primary btn-block" (click)="cargarDatos()"> Cargar Datos </a>
 
+    <input type="text" #id>
+
+    <a class="btn btn-primary" (click)="filtraId(id)"> Buscar</a>
+
+    <p *ngFor="let c of listaId">valor seria {{c.nombre}}</p>
+</div>
