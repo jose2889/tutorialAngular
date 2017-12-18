@@ -1,14 +1,15 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div class="col-md-6">
-    <h2>{{title}}</h2>
-     <ul class="list-group">
-      <li class="list-group-item" *ngFor="let cliente of lista">{{cliente.id}} <br> {{cliente.nombre}} <br> {{cliente.direccion}} <br> {{cliente.telefono}}</li> 
-    </ul>
-    <a class="btn btn-primary btn-block" (click)="cargarDatos()"> Cargar Datos </a>
+<div class="container">   
+  <h2>{{title}}</h2>
+  <div class="form-group ">
+    <input type="text" [(ngModel)]="nombre" (ngModelChange)="filtraId()" class="form-control">
+    
+  </div>
+  <a class="btn btn-primary btn-block"> Buscar </a>
 
-    <input type="text" #id>
-
-    <a class="btn btn-primary" (click)="filtraId(id)"> Buscar</a>
-
-    <p *ngFor="let c of listaId">valor seria {{c.nombre}}</p>
+    <div>   
+       <ul class="list-group">
+        <li class="list-group-item" *ngFor="let cliente of lista">{{cliente.id}} <br> {{cliente.nombre}} <br> {{cliente.direccion}} <br> {{cliente.telefono}}</li> 
+      </ul> 
+  </div>
 </div>

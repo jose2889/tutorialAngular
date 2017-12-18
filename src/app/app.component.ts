@@ -16,20 +16,12 @@ export class AppComponent {
   listaId:cliente[];
 
   constructor(private servicio:ServicioService){
-
-  }
-
-  cargarDatos(){
     this.lista = this.servicio.getDatos();
-    
   }
 
-  filtraId(id:number){
-    console.log("valor de id: "+id)
-    var id = 1;
-    this.listaId = this.servicio.getDatosId(1);
-
-    console.log(this.listaId)
+  nombre:string;
+  filtraId(){
+    this.lista = this.servicio.getDatosId(this.nombre);
   }
  
 }
